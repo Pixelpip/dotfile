@@ -1,14 +1,7 @@
 #!/bin/bash
 
-# If idle for 15s, power down the output
-swayidle -w \
-		timeout 15 'swaymsg "output * dpms off"' \
-		resume 'swaymsg "output * dpms on"' &
+# Set wallpaper with swaylock
+swaylock --image ~/.config/sway/lock.png
 
-
-# Lock screen immediately
-swaylock 
-
-
-# Kill the last instance of swayidle so the timer doesn't keep running in background
-pkill --newest swayidle
+# Optionally, add logging to help debug
+echo "$(date) - swaylock executed with wallpaper" 
